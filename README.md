@@ -1,4 +1,4 @@
-<h2>Tensorflow Paper Implementations</h2>
+<h2>Tensorflow and JAX Paper Implementations</h2>
 
 <!-- PROJECT SHIELDS -->
 [![MIT License][license-shield]][license-url]
@@ -31,7 +31,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project aims to provide open sourced Tensorflow implementations for research papers originally without code or code written woth frameworks other than JAX and Tensorflow.
+This project aims to provide open sourced Tensorflow and JAX implementations for research papers originally without code or code written with frameworks other than JAX and Tensorflow.
 <br>
 Available implementations for Tensorflow are:
 
