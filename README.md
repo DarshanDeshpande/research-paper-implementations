@@ -36,7 +36,11 @@ This project aims to provide open sourced Tensorflow and JAX implementations for
 Available implementations for Tensorflow are:
 
 1. <a href="https://arxiv.org/abs/2111.13587.pdf">Adaptive Fourier Neural Operators: Efficient Token Mixers For Transformers</a> (John Guibas et al., 2021)
-2. <a href="https://arxiv.org/abs/2105.14576v2">StyTr^2: Unbiased Image Style Transfer with Transformers</a>(Yingying Deng et al., 2021)
+2. <a href="https://arxiv.org/abs/2105.14576v2">StyTr^2: Unbiased Image Style Transfer with Transformers</a> (Yingying Deng et al., 2021)
+
+Available implementations for JAX are:
+
+1. <a href="https://arxiv.org/abs/2111.11418">MetaFormer is Actually What You Need for Vision</a> (Weihao Yu et al., 2021).
 
 ## Prerequisites
 
@@ -48,7 +52,7 @@ pip install -r requirements.txt
 
 ## Installation
 
-This project is built with Python 3 for the latest Tensorflow and JAX versions.
+This project is built with Python 3 for the latest Tensorflow and JAX/Flax versions.
 
 ```sh
 git clone https://github.com/DarshanDeshpande/research-paper-implementations.git
