@@ -18,7 +18,7 @@ class PoolformerTests(unittest.TestCase):
         x = jnp.ones([1, 256, 256, 3])
         params = s12.init({"params": rng}, x)["params"]
         sample_out = s12.apply({"params": params}, x)
-        self.assertEqual(sample_out.shape, (1, 7, 7, 512))
+        self.assertEqual(sample_out.shape, (1, 8, 8, 512))
 
     def test_s24_init(self):
         rng = random.PRNGKey(0)
@@ -26,7 +26,7 @@ class PoolformerTests(unittest.TestCase):
         x = jnp.ones([1, 256, 256, 3])
         params = s12.init({"params": rng}, x)["params"]
         sample_out = s12.apply({"params": params}, x)
-        self.assertEqual(sample_out.shape, (1, 7, 7, 512))
+        self.assertEqual(sample_out.shape, (1, 8, 8, 512))
 
     def test_s36_init(self):
         rng = random.PRNGKey(0)
@@ -34,7 +34,7 @@ class PoolformerTests(unittest.TestCase):
         x = jnp.ones([1, 256, 256, 3])
         params = s12.init({"params": rng}, x)["params"]
         sample_out = s12.apply({"params": params}, x)
-        self.assertEqual(sample_out.shape, (1, 7, 7, 512))
+        self.assertEqual(sample_out.shape, (1, 8, 8, 512))
 
     def test_m36_init(self):
         rng = random.PRNGKey(0)
@@ -42,7 +42,7 @@ class PoolformerTests(unittest.TestCase):
         x = jnp.ones([1, 256, 256, 3])
         params = s12.init({"params": rng}, x)["params"]
         sample_out = s12.apply({"params": params}, x)
-        self.assertEqual(sample_out.shape, (1, 7, 7, 768))
+        self.assertEqual(sample_out.shape, (1, 8, 8, 768))
 
     def test_m48_init(self):
         rng = random.PRNGKey(0)
@@ -50,7 +50,7 @@ class PoolformerTests(unittest.TestCase):
         x = jnp.ones([1, 256, 256, 3])
         params = s12.init({"params": rng}, x)["params"]
         sample_out = s12.apply({"params": params}, x)
-        self.assertEqual(sample_out.shape, (1, 7, 7, 768))
+        self.assertEqual(sample_out.shape, (1, 8, 8, 768))
 
 
 if __name__ == "__main__":
