@@ -22,34 +22,34 @@ class PoolformerTests(unittest.TestCase):
 
     def test_s24_init(self):
         rng = random.PRNGKey(0)
-        s12 = PoolFormer_S24()
+        s24 = PoolFormer_S24()
         x = jnp.ones([1, 256, 256, 3])
-        params = s12.init({"params": rng}, x)["params"]
-        sample_out = s12.apply({"params": params}, x)
+        params = s24.init({"params": rng}, x)["params"]
+        sample_out = s24.apply({"params": params}, x)
         self.assertEqual(sample_out.shape, (1, 8, 8, 512))
 
     def test_s36_init(self):
         rng = random.PRNGKey(0)
-        s12 = PoolFormer_S36()
+        s36 = PoolFormer_S36()
         x = jnp.ones([1, 256, 256, 3])
-        params = s12.init({"params": rng}, x)["params"]
-        sample_out = s12.apply({"params": params}, x)
+        params = s36.init({"params": rng}, x)["params"]
+        sample_out = s36.apply({"params": params}, x)
         self.assertEqual(sample_out.shape, (1, 8, 8, 512))
 
     def test_m36_init(self):
         rng = random.PRNGKey(0)
-        s12 = PoolFormer_M36()
+        m36 = PoolFormer_M36()
         x = jnp.ones([1, 256, 256, 3])
-        params = s12.init({"params": rng}, x)["params"]
-        sample_out = s12.apply({"params": params}, x)
+        params = m36.init({"params": rng}, x)["params"]
+        sample_out = m36.apply({"params": params}, x)
         self.assertEqual(sample_out.shape, (1, 8, 8, 768))
 
     def test_m48_init(self):
         rng = random.PRNGKey(0)
-        s12 = PoolFormer_M48()
+        m48 = PoolFormer_M48()
         x = jnp.ones([1, 256, 256, 3])
-        params = s12.init({"params": rng}, x)["params"]
-        sample_out = s12.apply({"params": params}, x)
+        params = m48.init({"params": rng}, x)["params"]
+        sample_out = m48.apply({"params": params}, x)
         self.assertEqual(sample_out.shape, (1, 8, 8, 768))
 
 
