@@ -41,6 +41,7 @@ Available implementations for Tensorflow are:
 Available implementations for JAX are:
 
 1. <a href="https://arxiv.org/abs/2111.11418">MetaFormer is Actually What You Need for Vision</a> (Weihao Yu et al., 2021).
+2. <a href="https://arxiv.org/abs/2112.13692v1">Augmenting Convolutional networks with attention-based aggregation</a> (Hugo Touvron et al., 2021).
 
 ## Prerequisites
 
