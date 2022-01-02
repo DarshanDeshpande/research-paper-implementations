@@ -1,1 +1,2 @@
 import poolformer
+import patchconvnet
