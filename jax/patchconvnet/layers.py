@@ -97,7 +97,7 @@ class Aggregation(nn.Module):
         att = nn.softmax(att, -1)
         att_drop = nn.Dropout(self.dropout)(att, deterministic=deterministic)
 
-        x_cls = jnp.transpose(jnp.matmul(att, v), (0, 2, 1, 3)).reshape(
+        x_cls = jnp.transpose(jnp.matmul(att_drop, v), (0, 2, 1, 3)).reshape(
             batch, 1, channels
         )
         x_cls = nn.Dense(self.dim)(x_cls)
