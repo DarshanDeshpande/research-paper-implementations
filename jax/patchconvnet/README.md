@@ -31,4 +31,4 @@ x = jnp.zeros([1, 224, 224, 3])
 params = model.init({"params": rng1, "dropout": rng2, "drop_path": rng3}, x, False)["params"] # Here, inputs=x and deterministic=False
 logits = model.apply({"params": params}, x, False, rngs={"dropout": rng2, "drop_path": rng3})
 ```
-Note that all models provided in this repository are as closely implemented as (og github). If you have any issues with the implementation then please raise an issue.
+Note that all models provided in this repository are as closely implemented as (https://github.com/facebookresearch/deit). If you have any issues with the implementation then please raise an issue.
