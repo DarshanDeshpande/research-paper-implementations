@@ -137,27 +137,32 @@ class MultiScalePatchEmbedding(nn.Module):
         height = width = int(dim ** 0.5)
         inputs = jnp.reshape(inputs, (batch, height, width, channels))
 
-        conv = SeparableDepthwiseConv2D(self.features, 1, self.kernel_size, (1, 1))(
-            inputs
-        )
-
         conv3x3 = SeparableDepthwiseConv2D(
             self.features, 1, (3, 3), (self.strides, self.strides)
-        )(conv)
+        )(inputs)
         conv3x3 = hardswish(conv3x3)
         conv3x3 = nn.BatchNorm(deterministic)(conv3x3)
         conv3x3 = jnp.reshape(conv3x3, (batch, -1, self.features))
 
+        conv5x5 = SeparableDepthwiseConv2D(self.features, 1, (3, 3), (1, 1))(inputs)
+        conv5x5 = hardswish(conv5x5)
+        conv5x5 = nn.BatchNorm(deterministic)(conv5x5)
         conv5x5 = SeparableDepthwiseConv2D(
-            self.features, 1, (5, 5), (self.strides, self.strides)
-        )(conv)
+            self.features, 1, (3, 3), (self.strides, self.strides)
+        )(conv5x5)
         conv5x5 = hardswish(conv5x5)
         conv5x5 = nn.BatchNorm(deterministic)(conv5x5)
         conv5x5 = jnp.reshape(conv5x5, (batch, -1, self.features))
 
+        conv7x7 = SeparableDepthwiseConv2D(self.features, 1, (3, 3), (1, 1))(inputs)
+        conv7x7 = hardswish(conv7x7)
+        conv7x7 = nn.BatchNorm(deterministic)(conv7x7)
+        conv7x7 = SeparableDepthwiseConv2D(self.features, 1, (3, 3), (1, 1))(conv7x7)
+        conv7x7 = hardswish(conv7x7)
+        conv7x7 = nn.BatchNorm(deterministic)(conv7x7)
         conv7x7 = SeparableDepthwiseConv2D(
-            self.features, 1, (7, 7), (self.strides, self.strides)
-        )(conv)
+            self.features, 1, (3, 3), (self.strides, self.strides)
+        )(conv7x7)
         conv7x7 = hardswish(conv7x7)
         conv7x7 = nn.BatchNorm(deterministic)(conv7x7)
         conv7x7 = jnp.reshape(conv7x7, (batch, -1, self.features))
@@ -199,9 +204,10 @@ class ConvolutionalLocalFeature(nn.Module):
 
 
 class ConvPosEnc(nn.Module):
-    '''
+    """
     Implementation translated from the official repository of CoaT: https://github.com/mlpc-ucsd/CoaT
-    '''
+    """
+
     dim: int
 
     @nn.compact
@@ -219,9 +225,10 @@ class ConvPosEnc(nn.Module):
 
 
 class ConvRelPosEnc(nn.Module):
-    '''
+    """
     Implementation translated from the official repository of CoaT: https://github.com/mlpc-ucsd/CoaT
-    '''
+    """
+
     window_size: int
 
     @nn.compact
@@ -262,9 +269,10 @@ class ConvRelPosEnc(nn.Module):
 
 
 class FactorizedAttention(nn.Module):
-    '''
+    """
     Implementation translated from the official repository of CoaT: https://github.com/mlpc-ucsd/CoaT
-    '''
+    """
+
     dim: int
     num_heads: int
     drop_prob: float = 0.1
